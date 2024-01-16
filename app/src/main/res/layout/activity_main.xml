@@ -1,1462 +1,192 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorThemeBackground"
-    android:orientation="vertical"
-    tools:context=".ui.activity.MainActivity"
-    tools:ignore="HardcodedText,UseCompoundDrawables,ContentDescription,TooManyViews">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="0dp"
-        android:gravity="center|start"
-        android:paddingLeft="15dp"
-        android:paddingTop="13dp"
-        android:paddingRight="15dp"
-        android:paddingBottom="5dp">
-
-        <TextView
-            android:id="@+id/main_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:singleLine="true"
-            android:text="MIUI 原生通知图标"
-            android:textColor="@color/colorTextGray"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/title_restart_icon"
-            style="?android:attr/selectableItemBackgroundBorderless"
-            android:layout_width="27dp"
-            android:layout_height="27dp"
-            android:layout_marginEnd="15dp"
-            android:alpha="0.85"
-            android:src="@drawable/ic_restart"
-            android:tint="@color/colorTextGray"
-            android:tooltipText="重启系统界面" />
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/title_github_icon"
-            style="?android:attr/selectableItemBackgroundBorderless"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:layout_marginEnd="5dp"
-            android:alpha="0.85"
-            android:src="@drawable/ic_github"
-            android:tint="@color/colorTextGray"
-            android:tooltipText="项目地址" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/colorThemeBackground" android:orientation="vertical" tools:context=".ui.activity.MainActivity" tools:ignore="HardcodedText,UseCompoundDrawables,ContentDescription,TooManyViews">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:elevation="0dp" android:gravity="center|start" android:paddingLeft="15dp" android:paddingTop="13dp" android:paddingRight="15dp" android:paddingBottom="5dp">
+    <TextView android:id="@+id/main_title" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:singleLine="true" android:text="MIUI Native Notification Icons" android:textColor="@color/colorTextGray" android:textSize="25sp" android:textStyle="bold" />
+    <androidx.constraintlayout.utils.widget.ImageFilterView android:id="@+id/title_restart_icon" style="?android:attr/selectableItemBackgroundBorderless" android:layout_width="27dp" android:layout_height="27dp" android:layout_marginEnd="15dp" android:alpha="0.85" android:src="@drawable/ic_restart" android:tint="@color/colorTextGray" android:tooltipText="システムインターフェースを再起動" />
+    <androidx.constraintlayout.utils.widget.ImageFilterView android:id="@+id/title_github_icon" style="?android:attr/selectableItemBackgroundBorderless" android:layout_width="26dp" android:layout_height="26dp" android:layout_marginEnd="5dp" android:alpha="0.85" android:src="@drawable/ic_github" android:tint="@color/colorTextGray" android:tooltipText="プロジェクトのアドレス" />
+  </LinearLayout>
+  <LinearLayout android:id="@+id/main_lin_status" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginTop="10dp" android:layout_marginRight="15dp" android:layout_marginBottom="5dp" android:background="@drawable/bg_dark_round" android:elevation="0dp" android:gravity="center">
+    <androidx.constraintlayout.utils.widget.ImageFilterView android:id="@+id/main_img_status" android:layout_width="25dp" android:layout_height="25dp" android:layout_marginStart="25dp" android:layout_marginEnd="5dp" android:src="@drawable/ic_warn" android:tint="@color/white" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingLeft="20dp" android:paddingTop="10dp" android:paddingRight="20dp" android:paddingBottom="10dp">
+      <TextView android:id="@+id/main_text_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5dp" android:ellipsize="end" android:singleLine="true" android:text="モジュールの状態は不明です" android:textColor="@color/white" android:textSize="18sp" />
+      <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="5dp" android:gravity="center|start" android:orientation="horizontal">
+        <TextView android:id="@+id/main_text_version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:alpha="0.8" android:ellipsize="end" android:singleLine="true" android:text="モジュールのバージョン：%1" android:textColor="@color/white" android:textSize="13sp" />
+        <TextView android:id="@+id/main_text_release_version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="5dp" android:background="@drawable/bg_orange_round" android:ellipsize="end" android:paddingLeft="5dp" android:paddingTop="2dp" android:paddingRight="5dp" android:paddingBottom="2dp" android:singleLine="true" android:text="タップでアップデート %1" android:textColor="@color/white" android:textSize="11sp" android:visibility="gone" />
+      </LinearLayout>
+      <TextView android:id="@+id/main_text_miui_version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:alpha="0.8" android:ellipsize="end" android:singleLine="true" android:text="システムバージョン：%1" android:textColor="@color/white" android:textSize="13sp" />
+      <TextView android:id="@+id/main_text_api_way" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:alpha="0.6" android:ellipsize="end" android:singleLine="true" android:text="%1" android:textColor="@color/white" android:textSize="11sp" android:visibility="gone" />
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/main_lin_status"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/bg_dark_round"
-        android:elevation="0dp"
-        android:gravity="center">
-
-        <androidx.constraintlayout.utils.widget.ImageFilterView
-            android:id="@+id/main_img_status"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="5dp"
-            android:src="@drawable/ic_warn"
-            android:tint="@color/white" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="10dp">
-
-            <TextView
-                android:id="@+id/main_text_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:text="模块状态未知"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:gravity="center|start"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/main_text_version"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:alpha="0.8"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="模块版本：%1"
-                    android:textColor="@color/white"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/main_text_release_version"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:background="@drawable/bg_orange_round"
-                    android:ellipsize="end"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="2dp"
-                    android:paddingRight="5dp"
-                    android:paddingBottom="2dp"
-                    android:singleLine="true"
-                    android:text="点击更新 %1"
-                    android:textColor="@color/white"
-                    android:textSize="11sp"
-                    android:visibility="gone" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/main_text_miui_version"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:alpha="0.8"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:text="系统版本：%1"
-                android:textColor="@color/white"
-                android:textSize="13sp" />
-
-            <TextView
-                android:id="@+id/main_text_api_way"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:alpha="0.6"
-                android:ellipsize="end"
-                android:singleLine="true"
-                android:text="%1"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:visibility="gone" />
+  </LinearLayout>
+  <androidx.core.widget.NestedScrollView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_marginBottom="10dp" android:fadingEdgeLength="10dp" android:fillViewport="true" android:requiresFadingEdge="vertical">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:animateLayoutChanges="true" android:orientation="vertical">
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginTop="10dp" android:layout_marginRight="15dp" android:background="@drawable/bg_permotion_round" android:elevation="0dp" android:gravity="center" android:orientation="horizontal" android:padding="15dp">
+        <androidx.constraintlayout.utils.widget.ImageFilterView android:layout_width="15dp" android:layout_height="15dp" android:layout_marginEnd="10dp" android:alpha="0.85" android:src="@drawable/ic_about" android:tint="@color/colorTextDark" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:alpha="0.6" android:lineSpacingExtra="5dp" android:text="設定を変更、モジュールのON/OFFを切り替えるには右上隅をタップしてシステムインターフェースを再起動してください。" android:textColor="@color/colorTextGray" android:textSize="11sp" tools:ignore="SmallSp" />
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginTop="10dp" android:layout_marginRight="15dp" android:animateLayoutChanges="true" android:background="@drawable/bg_permotion_round" android:elevation="0dp" android:gravity="center" android:orientation="vertical" android:paddingTop="15dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:gravity="center|start">
+          <androidx.cardview.widget.CardView android:layout_width="15dp" android:layout_height="15dp" android:layout_marginEnd="10dp" app:cardBackgroundColor="#009688" app:cardCornerRadius="50dp" app:cardElevation="0dp">
+            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="center" android:padding="2.5dp" android:src="@drawable/ic_preference" />
+          </androidx.cardview.widget.CardView>
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.85" android:singleLine="true" android:text="基本的な設定" android:textColor="@color/colorTextGray" android:textSize="12sp" />
         </LinearLayout>
+        <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/module_enable_switch" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginLeft="15dp" android:layout_marginTop="5dp" android:layout_marginRight="15dp" android:layout_marginBottom="5dp" android:text="モジュールの有効化" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="モジュールをOFFにするとすべてが完全に停止します。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        <LinearLayout android:id="@+id/module_enable_log_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:orientation="vertical">
+          <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/module_enable_log_switch" android:layout_width="match_parent" android:layout_height="30dp" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:layout_marginBottom="10dp" android:text="デバッグログを有効化" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+          <TextView android:id="@+id/exp_all_debug_log_button" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="13dp" android:layout_marginRight="13dp" android:layout_marginBottom="10dp" android:background="@drawable/bg_button_round" android:gravity="center" android:padding="10dp" android:singleLine="true" android:text="すべてのデバッグログをすべてエクスポート" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="デフォルトでこのオプションをONにする事は推奨しません。モジュールに問題が発生した場合にのみ、デバッグログを開発者に送信し問題を迅速に特定する事ができます。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        </LinearLayout>
+      </LinearLayout>
+      <LinearLayout android:id="@+id/status_icon_count_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginTop="10dp" android:layout_marginRight="15dp" android:animateLayoutChanges="true" android:background="@drawable/bg_permotion_round" android:elevation="0dp" android:gravity="center" android:orientation="vertical" android:paddingLeft="15dp" android:paddingTop="15dp" android:paddingRight="15dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center|start">
+          <androidx.cardview.widget.CardView android:layout_width="15dp" android:layout_height="15dp" android:layout_marginEnd="10dp" app:cardBackgroundColor="#2196F3" app:cardCornerRadius="50dp" app:cardElevation="0dp">
+            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="center" android:padding="2.5dp" android:src="@drawable/ic_function" />
+          </androidx.cardview.widget.CardView>
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.85" android:singleLine="true" android:text="機能の調整" android:textColor="@color/colorTextGray" android:textSize="12sp" />
+        </LinearLayout>
+        <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/status_icon_count_switch" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ステータスバーの通知アイコンの数の制限を解除する" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="このオプションはデフォルトで有効化されています、MIUIはデフォルトでは3個までしかアイコンを表示する事ができません。(HyperOSは1個)残りのアイコンは楕円になり、下部に表示されるアイコンの最大数をカスタマイズする事ができます。0に変更するとアイコンの数に代わりに楕円のみが表示されます、異常を防ぐために最大数は100個まであり、超過したアイコンはシグナルまたはネットワーク速度インジケーターに隠される可能性があります。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="この機能はMIUI、HyperOSを搭載した様々な形状のスクリーンデバイスによって効果が異なり、中央パンチホールノッチのデバイスを使用している場合は、通知アイコンの数がどんなに多くてもノッチのエリアを超える事はありません。左右のパンチホールノッチデバイスの場合は、通知アイコンの数がシグナルアイコンエリアの右側を超える事はありません。" android:textColor="@color/colorTextDark" android:textSize="12sp" android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="同じスコープで同じ機能を持つモジュール(&quot;System UI&quot; or &quot;System UI&quot;)を使用している場合、このモジュールと同時にこの機能をONにしないでください。コンフリクトが発生し、システムの非表示通知アイコン機能が無効化される可能性があります。" android:textColor="@color/colorTextDark" android:textSize="12sp" android:textStyle="bold" />
+        <TextView android:id="@+id/warn_s_count_dis_tip" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="⚠️ 使用しているシステムがサポートされていない可能性があります。この機能はMIUI 12.5未満のシステム(一部の12.5開発バージョンを除く)をサポートしておらず、正常に修正しても動作しません。" android:textColor="@color/colorTextDark" android:textSize="12sp" android:textStyle="bold" />
+        <LinearLayout android:id="@+id/status_icon_count_child_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:gravity="center">
+          <ImageView android:layout_width="15dp" android:layout_height="15dp" android:src="@drawable/ic_notify_icon" app:tint="@color/colorTextGray" />
+          <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:ellipsize="end" android:gravity="center" android:singleLine="true" android:text="最大の表示" android:textColor="@color/colorTextGray" android:textSize="14sp" />
+          <TextView android:id="@+id/status_icon_count_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:ellipsize="end" android:gravity="center" android:maxWidth="100dp" android:paddingLeft="5dp" android:paddingRight="5dp" android:singleLine="true" android:text="5" android:textColor="@color/colorTextGray" android:textSize="14sp" />
+          <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="10dp" android:ellipsize="end" android:gravity="center" android:singleLine="true" android:text="数" android:textColor="@color/colorTextGray" android:textSize="14sp" />
+          <TextView android:id="@+id/status_icon_count_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_button_round" android:ellipsize="end" android:gravity="center" android:paddingLeft="10dp" android:paddingTop="5dp" android:paddingRight="10dp" android:paddingBottom="5dp" android:singleLine="true" android:text="数の変更" android:textColor="@color/colorTextGray" android:textSize="14sp" />
+        </LinearLayout>
+      </LinearLayout>
+      <LinearLayout android:id="@+id/color_icon_hook_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginTop="10dp" android:layout_marginRight="15dp" android:background="@drawable/bg_permotion_round" android:elevation="0dp" android:gravity="center" android:orientation="vertical" android:paddingTop="15dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center|start" android:paddingLeft="15dp" android:paddingRight="15dp">
+          <androidx.cardview.widget.CardView android:layout_width="15dp" android:layout_height="15dp" android:layout_marginEnd="10dp" app:cardBackgroundColor="#66BB6A" app:cardCornerRadius="50dp" app:cardElevation="0dp">
+            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="center" android:padding="2.5dp" android:src="@drawable/ic_modify" />
+          </androidx.cardview.widget.CardView>
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.85" android:singleLine="true" android:text="アイコンの調整" android:textColor="@color/colorTextGray" android:textSize="12sp" />
+        </LinearLayout>
+        <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/color_icon_compat_switch" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="互換モードを有効化する" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="通知アイコンの色が正常でない事が判明した場合は、互換モードを有効化できます。一般的に互換モードを有効化する事は推奨しません、問題が発生した場合は互換モードを無効化してください。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:orientation="vertical">
+          <TextView android:layout_width="match_parent" android:layout_height="30dp" android:layout_marginBottom="5dp" android:gravity="center|start" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="ステータスバーの通知アイコンの透過度を調整する" android:textAllCaps="false" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+          <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginRight="5dp" android:baselineAligned="false" android:orientation="horizontal">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+              <androidx.appcompat.widget.AppCompatSeekBar android:id="@+id/status_dark_icon_custom_alpha_seekbar" android:layout_width="match_parent" android:layout_height="40dp" android:max="100" android:min="10" android:progress="75" />
+              <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="horizontal" android:paddingTop="5dp" android:paddingBottom="15dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="5dp" android:alpha="0.75" android:ellipsize="end" android:gravity="center" android:maxWidth="100dp" android:singleLine="true" android:text="ダーク" android:textColor="@color/colorTextGray" android:textSize="13.5sp" />
+                <TextView android:id="@+id/status_dark_icon_custom_alpha_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:ellipsize="end" android:gravity="center" android:maxWidth="100dp" android:singleLine="true" android:text="75%" android:textColor="@color/colorTextGray" android:textSize="15sp" android:textStyle="bold" />
+              </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+              <androidx.appcompat.widget.AppCompatSeekBar android:id="@+id/status_light_icon_custom_alpha_seekbar" android:layout_width="match_parent" android:layout_height="40dp" android:max="100" android:min="10" android:progress="95" />
+              <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="horizontal" android:paddingTop="5dp" android:paddingBottom="15dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="5dp" android:alpha="0.75" android:ellipsize="end" android:gravity="center" android:maxWidth="100dp" android:singleLine="true" android:text="明るい色" android:textColor="@color/colorTextGray" android:textSize="13.5sp" />
+                <TextView android:id="@+id/status_light_icon_custom_alpha_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:ellipsize="end" android:gravity="center" android:maxWidth="100dp" android:singleLine="true" android:text="95%" android:textColor="@color/colorTextGray" android:textSize="15sp" android:textStyle="bold" />
+              </LinearLayout>
+            </LinearLayout>
+          </LinearLayout>
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="スライダーをドラッグして、ステータスバーの通知アイコンの透過度を調整できます。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.6" android:lineSpacingExtra="6dp" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="モノクロアイコンのみ、カラーアイコンは常に100%の不透過で表示されます。" android:textColor="@color/colorTextDark" android:textSize="12sp" android:textStyle="bold" />
+        </LinearLayout>
+      </LinearLayout>
+      <LinearLayout android:id="@+id/notify_style_config_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginTop="10dp" android:layout_marginRight="15dp" android:animateLayoutChanges="true" android:background="@drawable/bg_permotion_round" android:elevation="0dp" android:gravity="center" android:orientation="vertical" android:paddingTop="15dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center|start" android:paddingLeft="15dp" android:paddingRight="15dp">
+          <androidx.cardview.widget.CardView android:layout_width="15dp" android:layout_height="15dp" android:layout_marginEnd="10dp" app:cardBackgroundColor="#BA68C8" app:cardCornerRadius="50dp" app:cardElevation="0dp">
+            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="center" android:padding="2.5dp" android:src="@drawable/ic_theme" />
+          </androidx.cardview.widget.CardView>
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.85" android:singleLine="true" android:text="通知の外観" android:textColor="@color/colorTextGray" android:textSize="12sp" />
+        </LinearLayout>
+        <TextView android:id="@+id/miui_notify_style_button" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="13dp" android:layout_marginTop="10dp" android:layout_marginRight="13dp" android:layout_marginBottom="10dp" android:background="@drawable/bg_button_round" android:gravity="center" android:padding="10dp" android:singleLine="true" android:text="システム通知表示設定をONにする" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="直接的にシステムの通知表示設定インターフェースを開くには、一番上のボタンをタップすると現在の通知バーの通知スタイルを調整する事ができます。MIUIクラシックスタイルまたはネイティブスタイルの通知スタイルを表示します。現在のシステムを開けない場合は、この機能をサポートしていません。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        <TextView android:id="@+id/warn_miui_notify_style_tip" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginTop="10dp" android:layout_marginRight="15dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="⚠️ MIUI 11で開くにはroot権限が必要な場合があります。" android:textColor="@color/colorTextDark" android:textSize="12sp" android:textStyle="bold" />
+        <LinearLayout android:id="@+id/notify_icon_custom_corner_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="vertical">
+          <TextView android:layout_width="match_parent" android:layout_height="30dp" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:layout_marginBottom="5dp" android:gravity="center|start" android:text="通知バーのアイコンの境界線のラウンドのサイズを変更する" android:textAllCaps="false" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+          <androidx.appcompat.widget.AppCompatSeekBar android:id="@+id/notify_icon_custom_corner_seekbar" android:layout_width="match_parent" android:layout_height="40dp" android:layout_marginLeft="5dp" android:layout_marginTop="5dp" android:layout_marginRight="5dp" android:max="15" android:min="0" android:progress="15" />
+          <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:orientation="horizontal" android:paddingTop="5dp" android:paddingBottom="15dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="5dp" android:alpha="0.75" android:ellipsize="end" android:gravity="center" android:maxWidth="100dp" android:singleLine="true" android:text="現在" android:textColor="@color/colorTextGray" android:textSize="13.5sp" />
+            <TextView android:id="@+id/notify_icon_custom_corner_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:ellipsize="end" android:gravity="center" android:maxWidth="100dp" android:singleLine="true" android:text="15 dp" android:textColor="@color/colorTextGray" android:textSize="15sp" android:textStyle="bold" />
+          </LinearLayout>
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="スライダーをドラッグして、通知バーのアイコンのラウンドのサイズを変更できます。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="この機能は、Android 12以上のMaterial 3通知アイコンスタイルとMIUIおよびHyperOSのクラシックスタイルの通知アイコンスタイルのみをサポートしています。" android:textColor="@color/colorTextDark" android:textSize="12sp" android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/miui_notify_icon_replacement_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+          <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/miui_notify_icon_replacement_switch" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="クラシックスタイルの通知バーの通知アイコンを置き換える" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.6" android:lineSpacingExtra="6dp" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="このオプションはデフォルトでONになっています、ONにする事でクラシック(MIUI)スタイルのドロップダウン通知バーの通知アイコンと同じ通知アイコンの置き換えを適用します。(この機能はすべてのシステムバージョンと互換性がある訳ではありません)" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/notify_icon_force_system_color_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+          <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/notify_icon_force_system_color_switch" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="通知バーのアイコンはシステムのデフォルトカラーを使用する" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.6" android:lineSpacingExtra="6dp" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="このオプションは、デフォルトでOFFになっています。ONする事でドロップダウンの通知バーの通知アイコンはアイコンのカラーリングのプロパティを無視し、システムのデフォルトカラー(システムによって統一されるカラー)を使用してすべてのアイコンをカラーリングします。これはネイティブの通知アイコンを破壊する動作であり、それを必要とする一部のユーザーのために追加されている機能です。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:orientation="vertical">
+          <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/notify_icon_force_app_icon_switch" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="通知バーのアイコンを強制的にアプリアイコンにする" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:paddingLeft="15dp" android:paddingRight="15dp" android:text="このオプションは、デフォルトではOFFになっています。ONにする事でドロップダウン通知バーの通知アイコンがアプリの独自アイコンに置き換わりますが、ステータスバーのアイコンは変更されません。これはネイティブの通知アイコンを破壊する動作であり、それを必要とする一部のユーザーのために追加されている機能です。ONにする事は推奨しません、個人の好みに応じてONにする必要があるかどうかを選択してください。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="MIUIはシステムの後期バージョンでカスタムカラーの通知アイコンを設定しましたが、これは自社のシステムアプリのみが使用可能でありサードパーティ製アプリは使用ができません。(これも一種の破壊行為である)このオプションをONにした後、MIUIが独自のカスタム通知アイコンを検出すると優先的にこのアイコンに置き換えられます(例:入力方法、フュージョン、衛星測位、Bluetoothヘッドセットの選択)" android:textColor="@color/colorTextDark" android:textSize="12sp" android:textStyle="bold" />
+        </LinearLayout>
+      </LinearLayout>
+      <LinearLayout android:id="@+id/notify_icon_config_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginTop="15dp" android:layout_marginRight="15dp" android:animateLayoutChanges="true" android:background="@drawable/bg_permotion_round" android:elevation="0dp" android:gravity="center" android:orientation="vertical" android:paddingTop="15dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:gravity="center|start">
+          <androidx.cardview.widget.CardView android:layout_width="15dp" android:layout_height="15dp" android:layout_marginEnd="10dp" app:cardBackgroundColor="#FF7043" app:cardCornerRadius="50dp" app:cardElevation="0dp">
+            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="center" android:padding="2.5dp" android:src="@drawable/ic_notify" />
+          </androidx.cardview.widget.CardView>
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.85" android:singleLine="true" android:text="アイコンの最適化" android:textColor="@color/colorTextGray" android:textSize="12sp" />
+        </LinearLayout>
+        <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/notify_icon_fix_switch" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:text="通知アイコンの最適化を有効化する" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+        <TextView android:id="@+id/notify_icon_fix_button" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="13dp" android:layout_marginRight="13dp" android:layout_marginBottom="10dp" android:background="@drawable/bg_button_round" android:gravity="center" android:padding="10dp" android:singleLine="true" android:text="通知アイコン最適化リストの設定" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="初回インストール時はクラウド更新データからリスト一覧を開きます。リスト一覧を開いてデータを再表示して更新を確認してください。データの更新後、データのシステムインターフェースは不要です。自動更新されます。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="このオプションはデフォルトでONになっています。ONにする事で最適化リストのアプリ通知アイコン、特にシステムレベルのプッシュ通知で常にデフォルトのアプリアイコン(色の付いたアプリアイコン)をモノクロの色合いに修正され、Androidのネイティブの統一仕様に沿った外観になります。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        <LinearLayout android:id="@+id/notify_icon_fix_placeholder_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:orientation="vertical">
+          <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/notify_icon_fix_placeholder_switch" android:layout_width="match_parent" android:layout_height="30dp" android:layout_marginBottom="5dp" android:text="プレースホルダーを使用した非適用の通知アイコンの修正" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="このオプションはデフォルトでOFFになっています。適用されていないカラーの通知アイコンがあった場合にステータスバーに表示される通知アイコンはプリセットのプレースホルダーアイコンでパッチされ、通知バーに表示される通知アイコンは元のアイコンのまま変更されません。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/notify_icon_fix_notify_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:orientation="vertical">
+          <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/notify_icon_fix_notify_switch" android:layout_width="match_parent" android:layout_height="30dp" android:layout_marginBottom="5dp" android:text="通知アイコンが適用されていない新しくインストールされたアプリの通知" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="この機能はデフォルトでONになっています。通知アイコンの最適化リストにデータがある場合、新しくインストールされたアプリに適用するデータがあるどうかを自動的にチェックし、ない場合は通知リマインダーを送信します。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/notify_icon_auto_sync_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:animateLayoutChanges="true" android:orientation="vertical">
+          <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/notify_icon_auto_sync_switch" android:layout_width="match_parent" android:layout_height="30dp" android:layout_marginBottom="5dp" android:text="リストの自動更新を最適化するために通知アイコンを有効化する" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="このオプションはデフォルトでONになっています。リスト内のデータがクラウド上の最新バージョンである事を保証するためにオンラインルールを毎日自動的に更新する時間が設定できます、自動更新のアドレスは正常に設定した最後のオンラインルール同期のアドレスです。\nモジュールがバックグラウンドでネットワークに接続可能で、他のアプリによって起動をブロックされていない事を確認してください。\nモジュールはバックグラウンドで実行し続ける必要はありません。同期の時間に達する事で自動的に開始します、モジュールが同期時間に実行中であればスケジュールされたタスクはキャンセルされます。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+          <LinearLayout android:id="@+id/notify_icon_auto_sync_child_item" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:gravity="center">
+            <ImageView android:layout_width="17dp" android:layout_height="17dp" android:src="@drawable/ic_system_clock" app:tint="@color/colorTextGray" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:ellipsize="end" android:gravity="center" android:singleLine="true" android:text="毎日" android:textColor="@color/colorTextGray" android:textSize="14sp" />
+            <TextView android:id="@+id/notify_icon_auto_sync_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginEnd="5dp" android:ellipsize="end" android:gravity="center" android:maxWidth="100dp" android:paddingLeft="5dp" android:paddingRight="5dp" android:singleLine="true" android:text="07:00" android:textColor="@color/colorTextGray" android:textSize="14sp" />
+            <TextView android:id="@+id/notify_icon_auto_sync_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_button_round" android:ellipsize="end" android:gravity="center" android:paddingLeft="10dp" android:paddingTop="5dp" android:paddingRight="10dp" android:paddingBottom="5dp" android:singleLine="true" android:text="時間を変更" android:textColor="@color/colorTextGray" android:textSize="14sp" />
+          </LinearLayout>
+        </LinearLayout>
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginTop="15dp" android:layout_marginRight="15dp" android:background="@drawable/bg_permotion_round" android:elevation="0dp" android:gravity="center" android:orientation="vertical" android:paddingLeft="15dp" android:paddingTop="15dp" android:paddingRight="15dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center|start">
+          <androidx.cardview.widget.CardView android:layout_width="15dp" android:layout_height="15dp" android:layout_marginEnd="10dp" app:cardBackgroundColor="#FFFF9800" app:cardCornerRadius="50dp" app:cardElevation="0dp">
+            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="center" android:padding="2.5dp" android:src="@drawable/ic_home" />
+          </androidx.cardview.widget.CardView>
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.85" android:singleLine="true" android:text="表示設定" android:textColor="@color/colorTextGray" android:textSize="12sp" />
+        </LinearLayout>
+        <com.fankes.miui.notify.ui.widget.MaterialSwitch android:id="@+id/hide_icon_in_launcher_switch" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="デスクトップのモジュールアイコンを非表示にする" android:textColor="@color/colorTextGray" android:textSize="15sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="モジュールアイコンを非表示後にインターフェースが閉じられデスクトップに表示されなくなる事がありますが、EdXposed、LSPosed上のモジュールの設定からONにする事ができます。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.6" android:lineSpacingExtra="6dp" android:text="注意: LSPosedの「ランチャーアイコンを強制的に表示」機能は必ず無効化してください!" android:textColor="#FF5722" android:textSize="12sp" />
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginTop="15dp" android:layout_marginRight="15dp" android:background="@drawable/bg_permotion_round" android:elevation="0dp" android:gravity="center" android:orientation="vertical" android:padding="15dp" android:paddingTop="15dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="15dp" android:gravity="center|start">
+          <androidx.cardview.widget.CardView android:layout_width="15dp" android:layout_height="15dp" android:layout_marginEnd="10dp" app:cardBackgroundColor="#FF03A9F4" app:cardCornerRadius="50dp" app:cardElevation="0dp">
+            <ImageView android:layout_width="match_parent" android:layout_height="match_parent" android:layout_gravity="center" android:padding="2dp" android:src="@drawable/ic_info" />
+          </androidx.cardview.widget.CardView>
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.85" android:singleLine="true" android:text="ヘルプと説明" android:textColor="@color/colorTextGray" android:textSize="12sp" />
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.8" android:lineSpacingExtra="10dp" android:text="Q.このモジュールが開発された経緯は?\nA.このモジュールは、MIUIの雑多な変化や不規則性から生まれました。元々はMIUI9以降で公式の通知アイコンスタイルがネイティブで使用されていたのですが、その後にユーザーの反応により、通知バーがモノクロのブロックとして表示される事が多くなりました。\nこれはもちろんシステムのせいではなく、国内のアプリやMiPush通知が極めてイレギュラーな通知アイコンデザインをしているからです。\nしかし、フィードバックを受けた後にMIUI開発チームは、この問題を無視し、「2021-5-18」の開発バージョンからすべての通知アイコンをアプリのカラフルなアイコンに変更しました。\nAndroidの開発者にとっては、公式ドキュメントの「setSmallIcon」が魔術のように変わってしまったMIUIには適用されなくなり、非常に多くのステータスアイコンが深刻なダメージを受ける事になります。\nもちろん、国内の携帯電話のエコシステムはMiPushのマーケティング通知に加えて、ソーシャルソフトウェアの通知であり、恐らくほとんどの人がこの問題を気にしていません。\nしかし、このモジュールは、MIUIの開発チームが無視をしたアイコンの問題を修正するために生まれ、MIUIのモノクロのブロックアイコンの問題を完璧に修正しました。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.8" android:lineSpacingExtra="10dp" android:text="Q.使い方は?\nA.モジュールはLSPosedのみをサポートしていますが、EdXposedで使用する事もできます。しかしモジュールはシステムアプリの変更を伴うため、他のフックフレームワークをサポートしない事でLSPosedのスコープではシステムをチェックする必要があります。LSPosedのスコープは「システムUI」をチェックするだけで使用ができます。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:alpha="0.8" android:lineSpacingExtra="10dp" android:text="Q.既知の問題は何ですか?\n問題の説明の一覧は以下の通りです。\n(1)ダイナミックな小さいアイコンはハイバージョンシステムでちらつきが発生する可能性があります。これは、MIUIがアプリアイコンを強制的に設定するのが原因です。当面は解決策が見つかりませんでした。解決策がある後の段階で再度調べてください。\n(2)LSPosedの最新バージョンを使用してください。古いバージョンではフックの機能が正常に動作しない可能性があります。最新バージョンで機能しない場合は、スコープの「システムUI」を長押しで最適化するを選択してください。\n(3)一部のAndroid 13 Beta版で反転しない可能性があると報告されています。この問題は、「2022-9-29」の開発バージョンで修正されています。同じ問題は、この問題を修正した最新バージョンのシステムに更新する事を推奨します。\n(4)すべてのサポートされているシステムバージョンで、MIUIクラシック通知スタイル(MIUIスタイル通知バー)の小さなアイコンを適用させる事はできません。現在、調査と修正がされています。テスト後に「システムUI」を長時間押し下げ、再選択をする事は修正できません。これはMIUI自体の問題かもしれません。MIUIの「通知表示設定」の通知バースタイルを調整する事を推奨します。(注: MIUIクラシック通知スタイルを変更する小さなアイコンのみがMIUI 12以降のシステムバージョンのみをサポートしています)\n(5)MIUI 12.5 「2021-5-18」開発バージョンの使用を推奨します、適用されます。\n(6)様々なシステムバージョンのダイナミックリフレッシュシステムインターフェース関数は、同じ効果ではない場合があります。アイコンが更新またはアノマリーを表示している時にモノクロのブロック、更新に失敗した場合は、システムインターフェースを手動で再起動してください。" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:alpha="0.8" android:lineSpacingExtra="10dp" android:text="Q.問題点をフィードバックするには?\nA.酷安でフォローしてください。 @星夜不荟" android:textColor="@color/colorTextDark" android:textSize="12sp" />
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginTop="15dp" android:layout_marginRight="15dp" android:layout_marginBottom="10dp" android:background="@drawable/bg_permotion_round" android:elevation="0dp" android:gravity="center" android:orientation="vertical" android:paddingLeft="15dp" android:paddingRight="15dp">
+        <TextView android:id="@+id/link_with_follow_me" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:gravity="center" android:lineSpacingExtra="6dp" android:text="チャットタイム\nここをタップして酷安に移動して私をフォローして他のアプリを入手しましょう!" android:textColor="@color/colorTextGray" android:textSize="16sp" />
+        <androidx.cardview.widget.CardView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10dp" app:cardCornerRadius="15dp" app:cardElevation="0dp">
+          <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:adjustViewBounds="true" android:src="@mipmap/bg_payment_code" />
+        </androidx.cardview.widget.CardView>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="10dp" android:gravity="center" android:lineSpacingExtra="6dp" android:text="開発者 酷安 @星夜不荟\n私の労働の成果を許可なく複製、改造、コピーは禁じます!" android:textColor="@color/colorTextGray" android:textSize="16sp" />
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="15dp" android:layout_marginRight="15dp" android:layout_marginBottom="10dp" android:background="@drawable/bg_permotion_round" android:gravity="center|start" android:orientation="horizontal" android:padding="10dp">
+        <ImageView android:layout_width="35dp" android:layout_height="35dp" android:layout_marginEnd="10dp" android:src="@mipmap/ic_yukihookapi" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:autoLink="web" android:ellipsize="end" android:lineSpacingExtra="6dp" android:maxLines="2" android:text="このモジュールは、YukiHookAPIでビルドされています。\n詳細はこちら https://github.com/HighCapable/YukiHookAPI" android:textColor="@color/colorTextGray" android:textSize="11sp" />
+      </LinearLayout>
     </LinearLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="10dp"
-        android:fadingEdgeLength="10dp"
-        android:fillViewport="true"
-        android:requiresFadingEdge="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/bg_permotion_round"
-                android:elevation="0dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="15dp">
-
-                <androidx.constraintlayout.utils.widget.ImageFilterView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:layout_marginEnd="10dp"
-                    android:alpha="0.85"
-                    android:src="@drawable/ic_about"
-                    android:tint="@color/colorTextDark" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="5dp"
-                    android:text="修改设置或开启关闭模块请点击右上角重启系统界面才能生效。"
-                    android:textColor="@color/colorTextGray"
-                    android:textSize="11sp"
-                    tools:ignore="SmallSp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dp"
-                android:animateLayoutChanges="true"
-                android:background="@drawable/bg_permotion_round"
-                android:elevation="0dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingTop="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:gravity="center|start">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_marginEnd="10dp"
-                        app:cardBackgroundColor="#009688"
-                        app:cardCornerRadius="50dp"
-                        app:cardElevation="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:padding="2.5dp"
-                            android:src="@drawable/ic_preference" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.85"
-                        android:singleLine="true"
-                        android:text="基础设置"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                    android:id="@+id/module_enable_switch"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="启用模块"
-                    android:textColor="@color/colorTextGray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:text="模块关闭后一切功能都将彻底停止工作。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp" />
-
-                <LinearLayout
-                    android:id="@+id/module_enable_log_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="vertical">
-
-                    <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                        android:id="@+id/module_enable_log_switch"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="10dp"
-                        android:text="启用调试日志"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/exp_all_debug_log_button"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="13dp"
-                        android:layout_marginRight="13dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/bg_button_round"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:singleLine="true"
-                        android:text="导出全部调试日志"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:text="默认情况下不建议开启此选项，仅在模块故障时开启，此时你可以发送调试日志给开发者帮助我们快速定位问题。"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/status_icon_count_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dp"
-                android:animateLayoutChanges="true"
-                android:background="@drawable/bg_permotion_round"
-                android:elevation="0dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingTop="15dp"
-                android:paddingRight="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|start">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_marginEnd="10dp"
-                        app:cardBackgroundColor="#2196F3"
-                        app:cardCornerRadius="50dp"
-                        app:cardElevation="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:padding="2.5dp"
-                            android:src="@drawable/ic_function" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.85"
-                        android:singleLine="true"
-                        android:text="功能调整"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                    android:id="@+id/status_icon_count_switch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="解除状态栏通知图标个数限制"
-                    android:textColor="@color/colorTextGray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:text="此选项默认开启，MIUI 默认最多只能显示 3 个图标 (HyperOS 是 1 个)，其余图标将变成省略号，你可以在下方自定义最多显示的图标个数，修改为 0 则只会显示省略号代表图标个数，为防止发生异常，最大限制 100 个，超出的图标可能会被信号或网速指示器遮挡。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:text="此功能针对不同类型的异形屏设备所搭载的 MIUI、HyperOS 会有不同的效果，如果你正在使用的是中置挖孔屏设备，那么通知图标的个数无论多少都不会超过挖孔区域，如果是居左或居右挖孔屏设备则通知图标的个数不会超过右侧信号图标区域。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:text="如果你同时使用了拥有相同作用域 (“系统界面” 或 “系统 UI”) 相同功能的模块，请勿与此模块同时打开此功能，会造成冲突导致系统的隐藏通知图标功能失效。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/warn_s_count_dis_tip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:text="⚠️ 你的系统可能不受支持，此功能不支持 MIUI 12.5 (不包含部分 12.5 开发版) 以下系统，修改成功也不会有效。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:id="@+id/status_icon_count_child_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/ic_notify_icon"
-                        app:tint="@color/colorTextGray" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:singleLine="true"
-                        android:text="最多显示"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/status_icon_count_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:maxWidth="100dp"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:singleLine="true"
-                        android:text="5"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="10dp"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:singleLine="true"
-                        android:text="个"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/status_icon_count_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_button_round"
-                        android:ellipsize="end"
-                        android:gravity="center"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="5dp"
-                        android:paddingRight="10dp"
-                        android:paddingBottom="5dp"
-                        android:singleLine="true"
-                        android:text="修改个数"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="14sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/color_icon_hook_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/bg_permotion_round"
-                android:elevation="0dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingTop="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|start"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_marginEnd="10dp"
-                        app:cardBackgroundColor="#66BB6A"
-                        app:cardCornerRadius="50dp"
-                        app:cardElevation="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:padding="2.5dp"
-                            android:src="@drawable/ic_modify" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.85"
-                        android:singleLine="true"
-                        android:text="图标调整"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                    android:id="@+id/color_icon_compat_switch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:text="启用兼容模式"
-                    android:textColor="@color/colorTextGray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:text="如果发现通知图标颜色判定不正常可启用兼容模式，一般情况下不建议启用兼容模式，发生问题请关闭兼容模式。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginBottom="5dp"
-                        android:gravity="center|start"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:text="调整状态栏中的通知图标透明度"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="15sp" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="5dp"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <androidx.appcompat.widget.AppCompatSeekBar
-                                android:id="@+id/status_dark_icon_custom_alpha_seekbar"
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:max="100"
-                                android:min="10"
-                                android:progress="75" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:orientation="horizontal"
-                                android:paddingTop="5dp"
-                                android:paddingBottom="15dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginEnd="5dp"
-                                    android:alpha="0.75"
-                                    android:ellipsize="end"
-                                    android:gravity="center"
-                                    android:maxWidth="100dp"
-                                    android:singleLine="true"
-                                    android:text="暗色"
-                                    android:textColor="@color/colorTextGray"
-                                    android:textSize="13.5sp" />
-
-                                <TextView
-                                    android:id="@+id/status_dark_icon_custom_alpha_text"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:ellipsize="end"
-                                    android:gravity="center"
-                                    android:maxWidth="100dp"
-                                    android:singleLine="true"
-                                    android:text="75%"
-                                    android:textColor="@color/colorTextGray"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <androidx.appcompat.widget.AppCompatSeekBar
-                                android:id="@+id/status_light_icon_custom_alpha_seekbar"
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:max="100"
-                                android:min="10"
-                                android:progress="95" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:orientation="horizontal"
-                                android:paddingTop="5dp"
-                                android:paddingBottom="15dp">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginEnd="5dp"
-                                    android:alpha="0.75"
-                                    android:ellipsize="end"
-                                    android:gravity="center"
-                                    android:maxWidth="100dp"
-                                    android:singleLine="true"
-                                    android:text="亮色"
-                                    android:textColor="@color/colorTextGray"
-                                    android:textSize="13.5sp" />
-
-                                <TextView
-                                    android:id="@+id/status_light_icon_custom_alpha_text"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:ellipsize="end"
-                                    android:gravity="center"
-                                    android:maxWidth="100dp"
-                                    android:singleLine="true"
-                                    android:text="95%"
-                                    android:textColor="@color/colorTextGray"
-                                    android:textSize="15sp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:text="你可以拖拽滑动条来调整状态栏中的通知图标透明度。"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:text="仅限单色图标，彩色图标始终以 100% 不透明显示。"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/notify_style_config_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dp"
-                android:animateLayoutChanges="true"
-                android:background="@drawable/bg_permotion_round"
-                android:elevation="0dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingTop="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|start"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_marginEnd="10dp"
-                        app:cardBackgroundColor="#BA68C8"
-                        app:cardCornerRadius="50dp"
-                        app:cardElevation="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:padding="2.5dp"
-                            android:src="@drawable/ic_theme" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.85"
-                        android:singleLine="true"
-                        android:text="通知外观"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/miui_notify_style_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="13dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="13dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_button_round"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:singleLine="true"
-                    android:text="打开系统通知显示设置"
-                    android:textColor="@color/colorTextGray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:text="点击上方按钮可以直接打开系统的通知显示设置界面，可以调整当前通知栏显示的通知样式为 MIUI 经典样式或原生样式，如果无法打开则是当前系统不支持此功能。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/warn_miui_notify_style_tip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:text="⚠️ 在 MIUI 11 上可能需要 Root 权限才能打开。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:id="@+id/notify_icon_custom_corner_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="5dp"
-                        android:gravity="center|start"
-                        android:text="调整通知栏中的图标边框圆角大小"
-                        android:textAllCaps="false"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="15sp" />
-
-                    <androidx.appcompat.widget.AppCompatSeekBar
-                        android:id="@+id/notify_icon_custom_corner_seekbar"
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="5dp"
-                        android:max="15"
-                        android:min="0"
-                        android:progress="15" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal"
-                        android:paddingTop="5dp"
-                        android:paddingBottom="15dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
-                            android:alpha="0.75"
-                            android:ellipsize="end"
-                            android:gravity="center"
-                            android:maxWidth="100dp"
-                            android:singleLine="true"
-                            android:text="当前"
-                            android:textColor="@color/colorTextGray"
-                            android:textSize="13.5sp" />
-
-                        <TextView
-                            android:id="@+id/notify_icon_custom_corner_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:gravity="center"
-                            android:maxWidth="100dp"
-                            android:singleLine="true"
-                            android:text="15 dp"
-                            android:textColor="@color/colorTextGray"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:text="你可以拖拽滑动条来调整通知栏中的图标边框圆角大小。"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:text="此功能仅支持 Android 12 及以上系统的 Material 3 通知图标风格以及 MIUI、HyperOS 后期的经典样式通知图标风格。"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/miui_notify_icon_replacement_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                        android:id="@+id/miui_notify_icon_replacement_switch"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:text="替换经典样式通知栏的通知图标"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:text="此选项默认开启，开启后经典 (MIUI) 样式的下拉通知栏中的通知图标将同样应用替换后的通知图标，否则将保持系统自己设置的图标。(此功能无法对所有系统版本兼容)"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/notify_icon_force_system_color_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                        android:id="@+id/notify_icon_force_system_color_switch"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:text="通知栏中的图标使用系统默认着色"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:text="此选项默认关闭，开启后下拉通知栏中的通知图标将忽略图标自身的着色属性，全部使用系统默认颜色 (系统提供的统一色调) 着色，这是一个破坏原生通知图标的行为，仅针对部分有需要的用户而添加，我们不推荐开启这个功能，请根据个人偏好进行选择是否需要开启。"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="vertical">
-
-                    <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                        android:id="@+id/notify_icon_force_app_icon_switch"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:text="通知栏中的图标强制为 APP 图标"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:paddingLeft="15dp"
-                        android:paddingRight="15dp"
-                        android:text="此选项默认关闭，开启后下拉通知栏中的通知图标将会被替换为 APP 自身图标，但是不会更改状态栏中的通知图标，这是一个破坏原生通知图标的行为，仅针对部分有需要的用户而添加，我们不推荐开启这个功能，请根据个人偏好进行选择是否需要开启。"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:text="MIUI 在后期的系统版本中自己设置了一种自定义的彩色通知图标，但是只能被自己的系统 APP 所使用，第三方 APP 还是不能使用的 (这也是一种破坏行为)，开启此选项后如果发现当前是 MIUI 自己设置的自定义通知图标，那么就会优先使用此图标替换 (例如：选择输入法、融合卫星定位以及蓝牙耳机)。"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/notify_icon_config_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:animateLayoutChanges="true"
-                android:background="@drawable/bg_permotion_round"
-                android:elevation="0dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingTop="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:gravity="center|start">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_marginEnd="10dp"
-                        app:cardBackgroundColor="#FF7043"
-                        app:cardCornerRadius="50dp"
-                        app:cardElevation="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:padding="2.5dp"
-                            android:src="@drawable/ic_notify" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.85"
-                        android:singleLine="true"
-                        android:text="图标优化"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                    android:id="@+id/notify_icon_fix_switch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="启用通知图标优化"
-                    android:textColor="@color/colorTextGray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/notify_icon_fix_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="13dp"
-                    android:layout_marginRight="13dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_button_round"
-                    android:gravity="center"
-                    android:padding="10dp"
-                    android:singleLine="true"
-                    android:text="配置通知图标优化名单"
-                    android:textColor="@color/colorTextGray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:text="首次安装请打开名单列表从云端更新数据，后期适配的内容也请手动打开名单列表重新拉取数据以检查更新，数据更新后无需重启系统界面，实时生效。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:text="此选项默认开启，开启后将对优化名单内的 APP 通知小图标使用单色调进行修复，特别是通过系统级别推送的通知，它们始终是 APP 默认图标 (彩色的 APP 图标)，修复后使得它们的图标看起来更加符合 Android 原生的统一规范。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp" />
-
-                <LinearLayout
-                    android:id="@+id/notify_icon_fix_placeholder_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:orientation="vertical">
-
-                    <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                        android:id="@+id/notify_icon_fix_placeholder_switch"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="使用占位符修补未适配的通知图标"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:text="此选项默认关闭，当发现未适配的彩色通知图标时，状态栏中显示的通知图标将会使用预置的占位符图标进行修补，通知栏中显示的通知图标保持原始图标不变。"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/notify_icon_fix_notify_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:orientation="vertical">
-
-                    <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                        android:id="@+id/notify_icon_fix_notify_switch"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="提醒未适配通知图标的新安装应用"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:text="此选项默认开启，在通知图标优化名单有数据时将自动检查新安装的应用是否存在适配数据，若没有将会发送通知提醒，如果你了解日后新安装的应用通知图标是遵守原生单色图标规范的，可以关闭此提醒。"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/notify_icon_auto_sync_item"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
-                    android:animateLayoutChanges="true"
-                    android:orientation="vertical">
-
-                    <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                        android:id="@+id/notify_icon_auto_sync_switch"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="启用通知图标优化名单自动更新"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:alpha="0.6"
-                        android:lineSpacingExtra="6dp"
-                        android:text="此选项默认开启，为确保名单内的数据为云端最新版本，你可以设置每天自动更新在线规则的时间，自动更新的地址为你最后一次成功设置的在线规则同步地址。\n请确保模块能够后台联网并不被阻止其它 APP 唤醒，否则自动同步可能会失败。\n模块无需保持在后台运行，到达同步时间后会自动启动，如果到达时间后模块正在运行则会自动取消本次计划任务。"
-                        android:textColor="@color/colorTextDark"
-                        android:textSize="12sp" />
-
-                    <LinearLayout
-                        android:id="@+id/notify_icon_auto_sync_child_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="17dp"
-                            android:layout_height="17dp"
-                            android:src="@drawable/ic_system_clock"
-                            app:tint="@color/colorTextGray" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:ellipsize="end"
-                            android:gravity="center"
-                            android:singleLine="true"
-                            android:text="每天"
-                            android:textColor="@color/colorTextGray"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/notify_icon_auto_sync_text"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="5dp"
-                            android:ellipsize="end"
-                            android:gravity="center"
-                            android:maxWidth="100dp"
-                            android:paddingLeft="5dp"
-                            android:paddingRight="5dp"
-                            android:singleLine="true"
-                            android:text="07:00"
-                            android:textColor="@color/colorTextGray"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/notify_icon_auto_sync_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bg_button_round"
-                            android:ellipsize="end"
-                            android:gravity="center"
-                            android:paddingLeft="10dp"
-                            android:paddingTop="5dp"
-                            android:paddingRight="10dp"
-                            android:paddingBottom="5dp"
-                            android:singleLine="true"
-                            android:text="修改时间"
-                            android:textColor="@color/colorTextGray"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/bg_permotion_round"
-                android:elevation="0dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingTop="15dp"
-                android:paddingRight="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center|start">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_marginEnd="10dp"
-                        app:cardBackgroundColor="#FFFF9800"
-                        app:cardCornerRadius="50dp"
-                        app:cardElevation="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:padding="2.5dp"
-                            android:src="@drawable/ic_home" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.85"
-                        android:singleLine="true"
-                        android:text="显示设置"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <com.fankes.miui.notify.ui.widget.MaterialSwitch
-                    android:id="@+id/hide_icon_in_launcher_switch"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="在桌面隐藏模块图标"
-                    android:textColor="@color/colorTextGray"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:text="隐藏模块图标后界面可能会被关闭，将不会再在桌面显示，你可以在 EdXposed、LSPosed 中找到模块设置并打开。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.6"
-                    android:lineSpacingExtra="6dp"
-                    android:text="注意：请务必在 LSPosed 中关闭“强制显示桌面图标”功能"
-                    android:textColor="#FF5722"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:background="@drawable/bg_permotion_round"
-                android:elevation="0dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="15dp"
-                android:paddingTop="15dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
-                    android:gravity="center|start">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:layout_marginEnd="10dp"
-                        app:cardBackgroundColor="#FF03A9F4"
-                        app:cardCornerRadius="50dp"
-                        app:cardElevation="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:padding="2dp"
-                            android:src="@drawable/ic_info" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:alpha="0.85"
-                        android:singleLine="true"
-                        android:text="使用帮助&amp;说明"
-                        android:textColor="@color/colorTextGray"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.8"
-                    android:lineSpacingExtra="10dp"
-                    android:text="Q.这个模块是如何诞生的？\nA.这个模块诞生来源于 MIUI 的乱改和不规范，本来 MIUI 9 之后，官方给出了原生通知图标样式，后面由于用户反应通知栏经常出现黑白块。\n这当然不是系统的错，而是国内 APP 和 MIPUSH 的通知极其不规范的通知图标设计。\n但是呢，接到反馈后 MIUI 开发组选择直接忽略这个问题，在 “2021-5-18” 的开发版开始，把全部通知图标都改成了 APP 的彩色图标，使得之前拥有自有样式的原生图标也被破坏。\n对于 Android 开发者来说，官方文档中的 “setSmallIcon” 不再适用于魔改后的 MIUI，这将会严重破坏非常多的状态图标。\n当然，国内的手机生态除了 MIPUSH 的营销通知就是社交软件的通知，可能大部分人都不会在意这件事情。\n但是，这个模块就是为了修复被 MIUI 开发组忽略的图标问题才诞生的，并完美地给 MIUI 修复了黑白块图标的问题。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.8"
-                    android:lineSpacingExtra="10dp"
-                    android:text="Q.如何使用？\nA.模块仅支持 LSPosed，EdXposed 也可以使用但随时停止支持，由于模块涉及到修改系统应用，不支持其它 Hook 框架，在 LSPosed 的作用域中，只需勾选“系统界面” (旧版本为“系统 UI”) 即可，应用设置后需要重启系统界面。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:alpha="0.8"
-                    android:lineSpacingExtra="10dp"
-                    android:text="Q.哪些是已知问题？\nA.以下是问题描述列表：\n(1) 动态小图标可能会在高版本系统中闪烁，这是 MIUI 强行设置 APP 图标的问题，暂时没有找到解决方案，强行破坏修复方式会导致原生动画出现问题，后期有解决方案再研究。\n(2) 请始终保持最新版本的 LSPosed，旧版本可能会出现 Hook 不生效的问题，若最新版本依然不生效请在作用域中长按“系统界面” (“系统 UI”) 选择重新优化。\n(3) 部分用户反馈在 MIUI 13、14 初期的 Android 13 内测版系统中可能会出现通知图标反色失败的情况，此问题官方在 “2022-9-29” 的开发版中已经修复，如果你在使用过程中遇到了同样的问题，推荐将系统更新到已修复此问题的最新版本。\n(4) 无法保证在全部支持的系统版本中适配 MIUI 经典通知样式中的小图标 (MIUI 样式通知栏)，此功能在部分 Android 11/12 稳定版或开发版机型中可能会发生 BUG 导致不生效，暂时无法排查和修复，经测试长按“系统界面” (“系统 UI”) 选择重新优化也不能修复，这可能是 MIUI 自身存在的问题，如果你的系统发生了此问题但仍想使用原生风格的通知图标建议在 MIUI 的“通知显示设置”中将通知栏样式调整为原生样式。(注意：修改 MIUI 经典通知样式的小图标仅支持 MIUI 12 以及后期的系统版本)\n(5) 建议最低从 MIUI 12.5 “2021-5-18” 开发版以后开始使用，之前的版本可能或多或少存在 MIUI 自身 BUG 不生效、图标黑白块问题，将不再进行适配。\n(6) 动态刷新系统界面功能在不同系统版本中的效果可能会不一样，若在刷新时发生图标黑白块或显示异常、未成功刷新等问题请手动重启一次系统界面即可解决。"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:alpha="0.8"
-                    android:lineSpacingExtra="10dp"
-                    android:text="Q.如何反馈问题？\nA.酷安关注 @星夜不荟"
-                    android:textColor="@color/colorTextDark"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/bg_permotion_round"
-                android:elevation="0dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp">
-
-                <TextView
-                    android:id="@+id/link_with_follow_me"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:lineSpacingExtra="6dp"
-                    android:text="恰饭时间\n点击前往酷安关注我，获取我的更多应用"
-                    android:textColor="@color/colorTextGray"
-                    android:textSize="16sp" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    app:cardCornerRadius="15dp"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:src="@mipmap/bg_payment_code" />
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:lineSpacingExtra="6dp"
-                    android:text="开发者 酷安 @星夜不荟\n未经允许不得转载、修改复制我的劳动成果"
-                    android:textColor="@color/colorTextGray"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/bg_permotion_round"
-                android:gravity="center|start"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@mipmap/ic_yukihookapi" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:autoLink="web"
-                    android:ellipsize="end"
-                    android:lineSpacingExtra="6dp"
-                    android:maxLines="2"
-                    android:text="此模块使用 YukiHookAPI 构建。\n了解更多 https://github.com/HighCapable/YukiHookAPI"
-                    android:textColor="@color/colorTextGray"
-                    android:textSize="11sp" />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+  </androidx.core.widget.NestedScrollView>
 </LinearLayout>

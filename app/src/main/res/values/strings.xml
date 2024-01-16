@@ -1,4 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MIUI 原生通知图标</string>
-    <string name="tile_name">通知图标</string>
+  <string name="app_name">MIUI Native Notification Icon</string>
+  <string name="tile_name">Notification Icons</string>
 </resources>
