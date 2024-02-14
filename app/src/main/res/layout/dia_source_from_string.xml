@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingLeft="15dp" android:paddingTop="15dp" android:paddingRight="15dp" tools:ignore="HardcodedText">
-  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="17.5dp" android:lineSpacingExtra="6dp" android:text="この機能は、単一のルールまたは複数のルールをデバッグするための物で同期後にここにある最新のオンラインルールは上書きされ、空になります。" android:textColor="@color/colorTextDark" android:textSize="13sp" />
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="5dp" android:layout_marginRight="5dp" android:layout_marginBottom="17.5dp" android:lineSpacingExtra="6dp" android:text="@string/online_rule_tip" android:textColor="@color/colorTextDark" android:textSize="13sp" />
   <com.google.android.material.textfield.TextInputLayout android:layout_width="match_parent" android:layout_height="wrap_content">
-    <com.google.android.material.textfield.TextInputEditText android:id="@+id/json_rule_edit" android:layout_width="match_parent" android:layout_height="150dp" android:ellipsize="end" android:gravity="center|start|top" android:hint="ここにJSONルールを貼り付けてください" android:textSize="14sp" />
+    <com.google.android.material.textfield.TextInputEditText android:id="@+id/json_rule_edit" android:layout_width="match_parent" android:layout_height="150dp" android:ellipsize="end" android:gravity="center|start|top" android:hint="@string/paste_json" android:textSize="14sp" />
   </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>
